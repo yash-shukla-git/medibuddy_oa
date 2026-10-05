@@ -1,10 +1,17 @@
+
 {
-  "name": "medibuddy_oa",
+  "name": "medicine-directory",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server"
   },
-  "private": true
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
 }
